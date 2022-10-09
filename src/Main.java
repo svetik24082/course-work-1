@@ -12,10 +12,13 @@ public class Main {
 
 
         printAllEmployees();
-        System.out.println(" Сумма всех зарплат состовляет " + calculateSumSalary());
-        System.out.println( " Сотрудник с минимальной зарплатой " + getEmployeeWithMinSalary());
-        System.out.println( " Сотрудник с максимальной зарплатой  " + getEmployeeWithMaxSalary());
 
+
+
+        System.out.println(" Сумма всех зарплат состовляет " + calculateSumSalary());
+        System.out.println(" Сотрудник с минимальной зарплатой " + getEmployeeWithMinSalary());
+        System.out.println(" Сотрудник с максимальной зарплатой  " + getEmployeeWithMaxSalary());
+        System.out.println( calculateTheAverageSalary());
 
     }
 
@@ -23,27 +26,24 @@ public class Main {
         for (Employee employee : employees) {
             if (employee != null) ;
             System.out.println(employee);
-
-
         }
     }
 
     public static int calculateSumSalary() {
         int sum = 0;
-
         for (Employee employee : employees) {
             if (employee != null) {
                 sum += employee.getSalary();
             }
-
         }
+
         return sum;
 
-    }
+        }
 
-    public static Employee getEmployeeWithMinSalary(){
-     int min = Integer.MAX_VALUE;
-     Employee targetEmployee = null;
+    public static Employee getEmployeeWithMinSalary() {
+        int min = Integer.MAX_VALUE;
+        Employee targetEmployee = null;
         for (Employee employee : employees) {
             if (employee != null && employee.getSalary() < min) {
                 min = employee.getSalary();
@@ -56,13 +56,38 @@ public class Main {
     }
 
     public static Employee getEmployeeWithMaxSalary() {
-    int max = Integer.MIN_VALUE;
-    Employee targetEmployee = null;
-    for (Employee employee : employees) {
-        if ( employee != null && employee.getSalary()> max){
-            max = employee.getSalary();
-            targetEmployee = employee;
+        int max = Integer.MIN_VALUE;
+        Employee targetEmployee = null;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getSalary() > max) {
+                max = employee.getSalary();
+                targetEmployee = employee;
+            }
         }
-    }
         return targetEmployee;
+    }
+
+
+    public static int calculateTheAverageSalary () {
+
+        int count = 0;
+        int sum = calculateSumSalary();
+        for (int i = 0; i < employees.length; i++) {
+            if (employees[i] != null) {
+                count++;
+            }
+        }
+        return (int) ((double) sum / count);
     }}
+
+
+
+
+
+
+
+
+
+
+
+
