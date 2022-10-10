@@ -17,7 +17,7 @@ public class Employee {
         return
                 "Ф.И.О." + fullName + '\'' +
                 ", отдел № " + department +
-                ", заработная плата = " + salary +
+                ", заработная плата = " + salary + " рублей " +
                 ", id=" + id +
                 '}';
     }
